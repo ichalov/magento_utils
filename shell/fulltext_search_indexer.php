@@ -1,8 +1,8 @@
 <?php
 
 /*  Author: Victor Ichalov <ichalov@gmail.com>
- *  The script makes a simplified version of full text index. It only supports text, varchar, and dropdown attributes. 
- *  It doesn't support multistore configurations.
+ *  The script produces a simplified version of full text index. It only supports text, varchar, int and dropdown 
+ *  attributes. It doesn't support multistore configurations.
  */
 
 require_once 'abstract.php';
@@ -41,7 +41,7 @@ class Mage_Shell_Full_Text_Search_Indexer extends Mage_Shell_Abstract {
         $sth = $r->query("select * from catalog_product_entity_int");
         while ($row = $sth->fetch()) {
             if (in_array((int)$row['attribute_id'], $attr_ids)) {
-                $prods[$row['entity_id']][$row['attribute_id']] = $opt_vals[$row['value']];
+                $prods[$row['entity_id']][$row['attribute_id']] = $opt_vals[$row['value']]?$opt_vals[$row['value']]:$row['value'];
             }
         }
 

@@ -1,5 +1,10 @@
 <?php
 
+/*  Author: Victor Ichalov <ichalov@gmail.com>
+ *  The script makes a simplified version of full text index. It only supports text, varchar, and dropdown attributes. 
+ *  It doesn't support multistore configurations.
+ */
+
 require_once 'abstract.php';
 
 class Mage_Shell_Full_Text_Search_Indexer extends Mage_Shell_Abstract {

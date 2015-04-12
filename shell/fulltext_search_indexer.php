@@ -18,7 +18,7 @@ class Mage_Shell_Full_Text_Search_Indexer extends Mage_Shell_Abstract {
         $attr_tmp = $r->fetchAll("select a.* from eav_attribute as a, catalog_eav_attribute as c where a.attribute_id = c.attribute_id and c.is_searchable = 1");
         $attrs = array();
         foreach($attr_tmp as $a) {
-          $attrs[$a['attribute_id']] = $a['attribute_code'];
+            $attrs[$a['attribute_id']] = $a['attribute_code'];
         }
         $attr_ids = array_keys($attrs);
 

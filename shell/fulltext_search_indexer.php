@@ -67,6 +67,9 @@ class Mage_Shell_Full_Text_Search_Indexer extends Mage_Shell_Abstract {
                 $cur_list = array();
             }
         }
+        if ($count) {
+            $w->query("insert into catalogsearch_fulltext(product_id, store_id, data_index) values ".implode(",", $cur_list));
+        }
         $w->query("update index_process set status = 'pending', ended_at = Now() where indexer_code = 'catalogsearch_fulltext'");
     }
 }
